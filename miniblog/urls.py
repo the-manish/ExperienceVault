@@ -19,9 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static 
 
 
-admin.site.site_header = "MiniBlog Header"
-admin.site.site_title = "MiniBlog Title"
-admin.site.index_title = "MiniBlog Index Title"
+admin.site.site_header = "MyBlog Header"
+admin.site.site_title = "MyBlog Title"
+admin.site.index_title = "MyBlog Index Title"
 
 urlpatterns = [
     path('admin/', admin.site.urls),

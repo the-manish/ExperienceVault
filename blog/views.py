@@ -12,15 +12,19 @@ def home(request):
 
 	allPost = Post.objects.all()
 	RecentPost = Post.objects.all()[::-1]
+	
 
 	data = request.GET.get('category')
+	cate_title = Category.objects.filter(sno=data).first()
+	
 	if data is not None:
 		cate_data = Post.objects.filter(category=data)
-		context = {'home':home,'cate_filter':cate_data,'cate':cate}
+		
+		context = {'home':home,'cate_filter':cate_data,'cate':cate,'cate_title':cate_title}
 		return render(request,'blog/category.html',context)
-
-
-	context = {'home':home,'cate':cate,'posts':allPost,'recentpost':RecentPost}
+    
+   
+	context = {'home':home,'cate':cate,'posts':allPost,'recentpost':RecentPost,'cate_title':cate_title}
 	return render(request,'blog/index.html',context)
 
 
